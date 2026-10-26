@@ -1,0 +1,270 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA7EB0BDD41C2EA864A4EB96 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F8D62B791D74C0CE06C79C /* DemoApp.swift */; };
+		47FC23CFA87611DF5C622F79 /* ContractGateway in Frameworks */ = {isa = PBXBuildFile; productRef = E2E720A55DA04293A2DBAD4C /* ContractGateway */; };
+		79426B43F9D271BEBC0C3611 /* ContractGatewayUI in Frameworks */ = {isa = PBXBuildFile; productRef = F544B0C78751D86B4635FE6A /* ContractGatewayUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5BA063E4D044A39BDEEE9121 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88F8D62B791D74C0CE06C79C /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0BB2E08E7ACF0674E8B4A94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47FC23CFA87611DF5C622F79 /* ContractGateway in Frameworks */,
+				79426B43F9D271BEBC0C3611 /* ContractGatewayUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		762BAE03A3EDFCA23AAC6736 = {
+			isa = PBXGroup;
+			children = (
+				F3A65E95D6FBA10DB79A448C /* Demo */,
+				584197750D24B43004C47F31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3A65E95D6FBA10DB79A448C /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				88F8D62B791D74C0CE06C79C /* DemoApp.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		584197750D24B43004C47F31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BA063E4D044A39BDEEE9121 /* Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F56E97E8412704BF5DF2C13 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76A36EC7FDC3D5342542DE6B /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				65AAAEDBCE1B7B6D61329D92 /* Sources */,
+				A0BB2E08E7ACF0674E8B4A94 /* Frameworks */,
+				42F4595734AB798572FBB98B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			packageProductDependencies = (
+				E2E720A55DA04293A2DBAD4C /* ContractGateway */,
+				F544B0C78751D86B4635FE6A /* ContractGatewayUI */,
+			);
+			productName = Demo;
+			productReference = 5BA063E4D044A39BDEEE9121 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C5DC6B6A2E40E95E0F8B1C53 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					1F56E97E8412704BF5DF2C13 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 9B58FE4A15D0B602B9E1695A /* Build configuration list for PBXProject "Demo" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 762BAE03A3EDFCA23AAC6736;
+			packageReferences = (
+				61696203EFAC5205D0E1DE83 /* XCRemoteSwiftPackageReference "ai-contract-gateway-kit" */,
+			);
+			productRefGroup = 584197750D24B43004C47F31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F56E97E8412704BF5DF2C13 /* Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42F4595734AB798572FBB98B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65AAAEDBCE1B7B6D61329D92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA7EB0BDD41C2EA864A4EB96 /* DemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AF5AA61D9A4B99D8C09C82D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A54B49295266F79C8E27E648 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37C361BCC70CED5C27BCFD66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Contract Gateway";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajatlakhina.ContractGatewayDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		21F0A8311BD9AB17DD9FF9AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Contract Gateway";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajatlakhina.ContractGatewayDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B58FE4A15D0B602B9E1695A /* Build configuration list for PBXProject "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF5AA61D9A4B99D8C09C82D0 /* Debug */,
+				A54B49295266F79C8E27E648 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76A36EC7FDC3D5342542DE6B /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37C361BCC70CED5C27BCFD66 /* Debug */,
+				21F0A8311BD9AB17DD9FF9AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		61696203EFAC5205D0E1DE83 /* XCRemoteSwiftPackageReference "ai-contract-gateway-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rajatslakhina/ai-contract-gateway-kit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2E720A55DA04293A2DBAD4C /* ContractGateway */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61696203EFAC5205D0E1DE83 /* XCRemoteSwiftPackageReference "ai-contract-gateway-kit" */;
+			productName = ContractGateway;
+		};
+		F544B0C78751D86B4635FE6A /* ContractGatewayUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61696203EFAC5205D0E1DE83 /* XCRemoteSwiftPackageReference "ai-contract-gateway-kit" */;
+			productName = ContractGatewayUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C5DC6B6A2E40E95E0F8B1C53 /* Project object */;
+}
