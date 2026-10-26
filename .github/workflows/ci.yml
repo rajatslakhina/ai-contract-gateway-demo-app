@@ -11,7 +11,7 @@ jobs:
     name: Resolve remote package + build Demo for iOS Simulator
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Toolchain
         run: xcodebuild -version
       - name: Resolve package dependencies (from GitHub, exactly the Package.resolved revision)
