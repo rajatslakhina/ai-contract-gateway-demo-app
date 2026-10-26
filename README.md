@@ -17,11 +17,19 @@ Claude API `2026-10-21` turned three long-accepted request shapes into HTTP 400s
 
 ## Screenshots
 
-**No screenshots exist for this release.** The app has not been run on a Simulator by this pipeline; see [Verification](#verification). No `Demo/Screenshots/` folder is included, on purpose, so nothing here pretends otherwise.
+Captured from the app running on an **iPhone 18 Pro simulator (iOS 27.0)**, launched from Xcode on 26 Oct 2026, with the package resolved from GitHub at `1.0.0`. These are captures of the simulator window, not mockups.
+
+| 1 · Default policy and the first builds | 2 · Default: sunset readiness and the CI gate |
+|---|---|
+| <img src="Demo/Screenshots/01-default-policy-and-fleet.jpg" width="300" alt="Contract Gateway dashboard: routing policy at revision 3 with rollout 100%, preserve intent, and builds 412 and 431"> | <img src="Demo/Screenshots/02-default-sunset-and-gate.jpg" width="300" alt="Sunset blocked by builds 412 and 470; contract matrix gate FAIL with one blocking line for build 412"> |
+| Default settings. The header reads *revision 3* because the sunset toggle had been switched on and off again; the routing is identical to first launch. Build 412 falls back to `2023-06-01` (preserve intent) and lists the lossy rewrite it avoided. Build 431 goes to `2026-10-21` with an *exact* rewrite. | *Blocked by build 412, 470*. **FAIL · 1 blocking**: build 412's lost temperature isn't acknowledged. The rewrites for 455 and 488 are acknowledged, so they pass. |
+| **3 · Sunset passed** | **4 · Hypothetical vendor rule** |
+| <img src="Demo/Screenshots/03-sunset-passed-470-rejected.jpg" width="300" alt="After the sunset: build 470 rejected with no compatible version; gate FAIL with two blocking lines"> | <img src="Demo/Screenshots/04-vendor-rule-retry.jpg" width="300" alt="With the hypothetical vendor rule on, build 455 is rejected by the vendor on 2026-10-21 and retried once on 2023-06-01"> |
+| Everything goes to `2026-10-21`. Build 470 is **rejected**: there's no compatible version, and the reason is shown. The gate adds a second blocking line. | Build 455's relocated request hits the made-up rule. The gateway retries **once** on `2023-06-01` (`vendorRejected`), and 455 joins the sunset blockers. |
 
 ## What you'll see (default state)
 
-Rollout is at 100%, lossy requests are kept on legacy (`preserve intent`), and `2023-06-01` is still served. **Nobody has looked at the rendered screen yet** (see [Verification](#verification)). The values below come from running the library with the same fixtures, and the library's `DemoClaimsTests` assert the routing, fallbacks, fidelity grades, buckets, blockers and gate counts:
+Rollout is at 100%, lossy requests are kept on legacy (`preserve intent`), and `2023-06-01` is still served. On the simulator every row below matched what's listed (screenshots 1 and 2 show most of them). The library's `DemoClaimsTests` also assert the routing, fallbacks, fidelity grades, buckets, blockers and gate counts:
 
 | Build | Recorded request | Goes to | Why |
 |---|---|---|---|
@@ -42,6 +50,8 @@ Things to try:
 - **Kill switch**: every request goes to `2023-06-01`. The sunset answer stays "blocked", because it comes from the contract matrix rather than from traffic. Traffic that never reaches the new version can't tell you it's safe.
 - **Rollout 50%**: the sticky FNV-1a buckets decide; 412 (bucket 9921) and 470 (bucket 7045) stay on legacy without even being tried.
 - **Vendor ships an unannounced rule (hypothetical)**: a made-up rule, *not* part of the real `2026-10-21` change, that rejects a user turn ending in a document. Build 455's relocated request hits it; the gateway retries **once** on `2023-06-01`, records `vendorRejected`, and 455 joins the sunset blockers (live evidence the matrix can't have).
+
+Screenshots 3 and 4 show two of these on the simulator; `DemoClaimsTests` covers all five.
 
 Every toggle becomes a new policy revision (shown in the section header) and the whole fleet is replayed through a fresh gateway. A replay that finishes after a newer one has started is discarded, so the header and the rows always describe the same revision. (That guard is compiled in CI but isn't covered by a test.)
 
@@ -69,7 +79,18 @@ Every toggle becomes a new policy revision (shown in the section header) and the
 What has actually happened, stated separately:
 
 - **Library, built and tested locally:** Swift 6.0.3 on Linux (x86_64). Clean build (`rm -rf .build`) with `-warnings-as-errors`, 0 warnings. `swift test`: **69 tests, 0 failures**, including `DemoClaimsTests`, which asserts the outcomes listed in "What you'll see" above.
-- **Library CI:** green on `v1.0.0` (Linux, and macOS 15 with an iOS Simulator build of `ContractGatewayUI`, warnings as errors).
-- **This app's CI:** pending. The results are recorded here once the first run reports.
-- **Simulator run:** pending. The result is recorded here, together with screenshots if it happens.
+- **Library CI:** green on `v1.0.0`. It runs on Linux, and on macOS 15 with an iOS Simulator build of `ContractGatewayUI`, all with warnings as errors.
+- **This app's CI ([Actions](https://github.com/rajatslakhina/ai-contract-gateway-demo-app/actions)): green.**
+  - It runs on macOS 15 (Xcode 16.4).
+  - It resolves `ai-contract-gateway-kit` from GitHub exactly at the `Package.resolved` revision (`1.0.0`).
+  - It builds the `Demo` scheme for `generic/platform=iOS Simulator`, with warnings as errors set on the `Demo` target.
+  - The first run failed on a CI configuration mistake: a command-line `SWIFT_TREAT_WARNINGS_AS_ERRORS=YES` also reached the remote package target, which Xcode compiles with `-suppress-warnings`, and the two flags conflict. The fix moved the setting onto the `Demo` target. The failed run was removed after the fix went green.
+- **Run on a simulator: yes.**
+  - On 26 Oct 2026, `Demo.xcodeproj` was opened in Xcode on the maintainer's Mac, and Xcode resolved `ContractGateway 1.0.0` from GitHub.
+  - The app was built and run on an **iPhone 18 Pro simulator (iOS 27.0)**. The dashboard rendered in the default state shown above.
+  - Toggling *sunset has passed* rejected build 470 and added the second gate line.
+  - Toggling the *hypothetical vendor rule* made build 455 retry once on `2023-06-01`, and it joined the sunset blockers.
+  - The four screenshots above are captures of the simulator window from that run.
+  - Not exercised on the simulator, but covered by `DemoClaimsTests`: the kill switch, *prefer 2026-10-21*, and the 50% rollout.
 - The project file was checked structurally: braces and parens balance, no dangling object IDs, and the shared scheme points at the app target.
+- **Independent review:** 3 rounds by a separate model instance before publication. The round-3 fixes were not re-reviewed.
