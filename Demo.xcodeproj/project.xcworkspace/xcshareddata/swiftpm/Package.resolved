@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "ai-contract-gateway-kit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rajatslakhina/ai-contract-gateway-kit.git",
+      "state" : {
+        "revision" : "8974f65bf7b50bd6b7bbc8371686ee4a410726ca",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
