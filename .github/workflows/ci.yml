@@ -23,5 +23,7 @@ jobs:
             -scheme Demo \
             -destination 'generic/platform=iOS Simulator' \
             -onlyUsePackageVersionsFromResolvedFile \
-            CODE_SIGNING_ALLOWED=NO \
-            SWIFT_TREAT_WARNINGS_AS_ERRORS=YES
+            CODE_SIGNING_ALLOWED=NO
+          # Warnings-as-errors is set on the Demo target itself (project.pbxproj), not here:
+          # a command-line SWIFT_TREAT_WARNINGS_AS_ERRORS=YES also reaches the remote package
+          # target, which Xcode compiles with -suppress-warnings, and the two flags conflict.
